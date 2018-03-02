@@ -1,14 +1,24 @@
-<ion-header>
-  <ion-navbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
-  </ion-navbar>
-</ion-header>
-
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+    <ion-item>
+      <ion-label color="primary" floating>find pics of ...</ion-label>
+      <ion-input type="search" name="searchItem"></ion-input>
+      <ion-icon name="arrow-dropright-circle"></ion-icon>
+    </ion-item>
+    <button ion-button (click)="loadPeople()">GO</button>
+
+    <ng-template *ngIf="gotImages">
+      <ion-list-header>
+        Results:
+        <ion-list>
+          <ion-item *ngFor="let person of people">
+            <ion-avatar item-left>
+              <img src="{{person.picture.thumbnail}}">
+            </ion-avatar>
+            <h2>{{person.name.first}} {{person.name.last}}</h2>
+            <p>{{person.email}}</p>
+          </ion-item>
+        </ion-list>
+      </ion-list-header>
+    </ng-template>
+
 </ion-content>

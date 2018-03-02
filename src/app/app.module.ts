@@ -1,29 +1,29 @@
+import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpModule } from '@angular/http';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
-import { SplashScreen } from '@ionic-native/splash-screen';
-import { StatusBar } from '@ionic-native/status-bar';
 
-import { MyApp } from './app.component';
+import { FindMeThisPic } from './app.component';
 import { HomePage } from '../pages/home/home';
+import { PixabayService } from '../providers/pixabay-service/pixabay-service';
 
 @NgModule({
   declarations: [
-    MyApp,
+    FindMeThisPic,
     HomePage
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    HttpClientModule,
+    IonicModule.forRoot(FindMeThisPic)
   ],
   bootstrap: [IonicApp],
   entryComponents: [
-    MyApp,
+    FindMeThisPic,
     HomePage
   ],
   providers: [
-    StatusBar,
-    SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
